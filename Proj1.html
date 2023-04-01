@@ -1,0 +1,96 @@
+//drum kit
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .con {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .con div {
+            width: 100px;
+            height: 100px;
+            border: 10px solid black;
+            background-color: aqua;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>document</h1>
+    <audio src="ad.mp3" id="p1"></audio>
+    <audio src="dead.mp3" id="p2"></audio>
+    <audio src="down.mp3" id="p3"></audio>
+    <audio src="eat.mp3" id="p4"></audio>
+    <div class="con">
+        <div id="a">A</div>
+        <div id="s">S</div>
+        <div id="d">D</div>
+        <div id="f">F</div>
+
+    </div>
+    <script>
+        let a = document.getElementById("a")
+        let s = document.getElementById("s")
+        let d = document.getElementById("d")
+        let f = document.getElementById("f")
+
+        let p1 = document.getElementById("p1")
+        let p2 = document.getElementById("p2")
+        let p3 = document.getElementById("p3")
+        let p4 = document.getElementById("p4")
+
+        document.addEventListener('keydown', (e) => {
+            console.log(e.key)
+            if (e.key == 'a') {
+                a.style.borderColor = "yellow";
+                p1.play();
+            }
+            else if (e.key == 's') {
+                s.style.borderColor = "red";
+                p2.play();
+            }
+            else if (e.key == 'd') {
+                d.style.borderColor = "green";
+                p3.play();
+            }
+            else if (e.key == 'f') {
+                f.style.borderColor = "blue";
+                p4.play();
+            }
+
+        })
+        document.addEventListener('keyup', (e) => {
+            console.log(e.key)
+            if (e.key == 'a') {
+                a.style.borderColor = "black";
+                p1.pause();
+            }
+            else if (e.key == 's') {
+                s.style.borderColor = "black";
+                p2.pause();
+            }
+            else if (e.key == 'd') {
+                d.style.borderColor = "black";
+                p3.pause();
+            }
+            else if (e.key == 'f') {
+                f.style.borderColor = "black";
+                p4.pause();
+            }
+
+        })
+
+    </script>
+
+</body>
+
+</html>
