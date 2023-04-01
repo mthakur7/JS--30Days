@@ -1,0 +1,70 @@
+//css variables
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #im {
+            width: 300px;
+            height: 300px;
+            background-color: aqua;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        img {
+            width: 50px;
+            filter: blur(1px);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>document</h1>
+    <div class="con">
+        space <input type="range" name="" id="s">
+        blur <input type="range" name="" id="b">
+        base color <input type="color" name="" id="c">
+
+        <div id="im">
+            <img src="face.jpg">
+        </div>
+
+
+
+    </div>
+    </div>
+    <script>
+        let c = document.getElementById("c")
+        let b = document.getElementById("b")
+        let s = document.getElementById("s")
+
+        let im = document.getElementById("im")
+
+        s.onclick = () => {
+            console.log(s.value)
+            let x = s.value
+            im.style.padding = `${x}px`
+            im.style.backgroundColor = "red"
+            console.log(im.style)
+        }
+        b.onclick = () => {
+
+            im.firstElementChild.style.filter = `blur(${b.value}px)`
+        }
+        c.onclick = () => {
+            im.style.backgroundColor = `${c.value}`
+        }
+
+    </script>
+
+</body>
+
+</html>
