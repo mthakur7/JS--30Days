@@ -1,0 +1,89 @@
+//clock
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .con {
+            background-color: aqua;
+            border: 10px solid red;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+
+        #h {
+            background-color: black;
+            width: 8px;
+            height: 70px;
+            position: absolute;
+            left: 100px;
+            top: 30px;
+            transform-origin: bottom;
+        }
+
+        #m {
+            background-color: rgb(68, 210, 29);
+            width: 5px;
+            height: 80px;
+            position: absolute;
+            left: 100px;
+            top: 20px;
+            transform-origin: bottom;
+        }
+
+        #s {
+            background-color: rgb(79, 32, 190);
+            width: 2px;
+            height: 100px;
+            position: absolute;
+            left: 100px;
+            top: 0px;
+            transform-origin: bottom;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>document</h1>
+    <div class="con">
+        <div id="s"></div>
+        <div id="m"></div>
+        <div id="h"></div>
+    </div>
+    </div>
+    <script>
+        let h = document.getElementById("h")
+        let m = document.getElementById("m")
+        let s = document.getElementById("s")
+
+        var dt = new Date()
+
+        let u = (dt.getHours() - 12) * 60 * 60 * (0.00833)
+        let v = (dt.getMinutes()) * 60 * (0.1)
+        let w = (dt.getSeconds()) * 6
+        h.style.transform = `rotate(${u}deg)`
+        m.style.transform = `rotate(${v}deg)`
+        s.style.transform = `rotate(${w}deg)`
+
+        setInterval(() => {
+            s.style.transform += "rotate(6deg)";
+            m.style.transform += "rotate(0.1deg)";
+            s.style.transform += "rotate(0.00833deg)";
+
+        }, 1000)
+
+
+    </script>
+
+</body>
+
+</html>
