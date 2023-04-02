@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>document</h1>
+    search <input type="text" id="txt">
+    <ul id="u"></ul>
+    <script>
+        let t = document.getElementById("txt")
+        let u = document.getElementById("u")
+        const x = `https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json`
+        var arr = []
+        let pr = fetch(x)
+        pr.then((res) => {
+            return res.json()
+        }).then((val) => {
+            arr = [...val]
+            //arr.push(...val)
+            // console.log(val) 
+
+        })
+
+
+        t.addEventListener("change", (e) => {
+            if (e.target.value == "")
+                u.innerHTML = ""
+            else {
+                u.innerHTML = ""
+                arr.forEach(element => {
+
+                    if (element.city.includes(t.value) && t.length != 'undefined' || element.state.includes(t.value)) {
+                        let l = document.createElement("li")
+                        l.innerText = element.city + ", " + element.state
+                        u.appendChild(l)
+
+                    }
+                })
+
+            }
+        })
+
+    </script>
+</body>
+
+</html>
