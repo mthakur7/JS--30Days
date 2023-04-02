@@ -1,0 +1,68 @@
+// holds Shift, and then clicks another checkbox a few rows down, all the checkboxes inbetween those two checkboxes should be checked.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <p id="p1" style="text-decoration: none;"> <input type="checkbox" name="" id="c1">line1</p>
+        <p id="p2" style="text-decoration: none;"> <input type="checkbox" name="" id="c2">line2</p>
+        <p id="p3" style="text-decoration: none;"> <input type="checkbox" name="" id="c3">line3</p>
+        <p id="p4" style="text-decoration: none;"> <input type="checkbox" name="" id="c4">line4</p>
+        <p id="p5" style="text-decoration: none;"> <input type="checkbox" name="" id="c5">line5</p>
+        <p id="p6" style="text-decoration: none;"> <input type="checkbox" name="" id="c6">line6</p>
+        <p id="p7" style="text-decoration: none;"> <input type="checkbox" name="" id="c7">line7</p>
+        <p id="p8" style="text-decoration: none;"> <input type="checkbox" name="" id="c8">line8</p>
+        <p id="p9" style="text-decoration: none;"> <input type="checkbox" name="" id="c9">line9</p>
+        <p id="p10" style="text-decoration: none;"> <input type="checkbox" name="" id="c10">line10</p>
+    </div>
+    <script>
+        let inp = document.querySelectorAll("input");
+        var x=-1, y=-1
+        inp.forEach((i,idx) => {
+            i.addEventListener('click',(e)=>{
+               
+                if(e.shiftKey){
+                 y=idx
+                
+                 if(y>x){
+                for(let z=x;z<y;z++){                  
+                    inp[z].checked="true"
+                    inp[z].parentElement.style.textDecoration = "line-through"
+               
+                }}
+                if(x>y){
+                for(let z=x;z>y;z--){                  
+                    inp[z].checked="true"
+                    inp[z].parentElement.style.textDecoration = "line-through"
+               
+                }}
+                 
+                }
+                else{
+                if (i.parentElement.style.textDecoration == "none")
+                    i.parentElement.style.textDecoration = "line-through"
+                else
+                    i.parentElement.style.textDecoration = "none"
+
+                    x=idx
+                    
+                }  
+            })
+          
+            })
+       
+    </script>
+</body>
+
+</html>
