@@ -1,0 +1,62 @@
+//video player
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #skp {
+            width: 300px;
+            height: 20px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>document</h1>
+    <video src="video.mp4" id="vid" width="300" height="300"></video><br>
+    <button id="btn">play/pause</button> <br>
+    peed<input type="range" name="" id="spd"><br>
+    volume<input type="range" name="" id="vol"><br>
+    <progress id="skp" value="0" max="55"> 100% </progress><br>
+    <button id="skip">skip</button>
+
+    <script>
+        let vid = document.getElementById("vid")
+        let btn = document.getElementById("btn")
+        let spd = document.getElementById("spd")
+        let vol = document.getElementById("vol")
+        let skp = document.getElementById("skp")
+        let skip = document.getElementById("skip")
+
+        btn.onclick = () => {
+            if (vid.paused)
+                vid.play()
+            else
+                vid.pause()
+        }
+
+
+        spd.addEventListener('change', (e) => {
+            vid.playbackRate = e.target.value / 20
+        })
+        vol.addEventListener('change', (e) => {
+            vid.volume = e.target.value / 100
+        })
+        skip.addEventListener('click', () => {
+            if (vid.currentTime < vid.duration - 5)
+                vid.currentTime += 5
+            skp.value += 5
+        })
+
+
+
+    </script>
+</body>
+
+</html>
