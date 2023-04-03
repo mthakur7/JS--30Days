@@ -1,0 +1,40 @@
+//Sorting Band Names without articles
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>document</h1>
+    <script>
+        const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
+        const arr=[]
+        const v=['The','A','An']
+    
+   console.log(  bands.sort((x,y)=>{
+    let a=x.split(" ");
+    let b=y.split(" ");
+
+    let p=x[0],q=y[0]
+
+    if(v.find((val)=>{
+                return val==a[0]
+            })){
+               p=a[1][0]
+            }
+            if(v.find((val)=>{
+                return val==b[0]
+            })){
+               q=b[1][0]
+            }
+
+            return p>q?1:-1
+
+        }))
+        </script>
+</body>
+</html>
