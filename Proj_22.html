@@ -1,0 +1,102 @@
+//follow along links
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: aqua;
+        }
+
+        a{
+
+            border: 2px solid green;
+            border-radius: 30%;
+            margin: 20px;
+          
+        }
+
+        .move {
+            background-color: rgb(211, 219, 194);
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 0.4s;
+            z-index: -1;
+
+
+        }
+    </style>
+</head>
+
+<body>
+ 
+        <h1>document</h1>
+
+        <a href="#" id="a1">home</a>
+        <a href="#" id="a2">contact</a>
+        <a href="#" id="a3">about</a>
+        <a href="#" id="a4">projects</a>
+
+        <p>Lorem ipsum, dolor Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo animi sunt, quam quidem
+            obcaecati doloremque, nostrum rerum non aut repudiandae quasi repellat doloribus dignissimos fugit nemo?
+            Ipsa reprehenderit illum facilis.
+            Velit excepturi maiores in eos sapiente, <a href="#" id="a5">link</a> ipsa consequatur minus unde cupiditate
+            mollitia aspernatur omnis dolorem quidem voluptatem nobis aperiam rem! Accusamus suscipit vero, eos
+            reiciendis vel nisi enim odio tempore.
+            Corporis dicta pariatur cum! Rerum, ea impedit, dicta debitis ducimus numquam ipsa voluptas reprehenderit
+            qui nisi tenetur porro facere, aliquam minima vero assumenda velit praesentium. Alias dicta quasi architecto
+            quia.
+            Molestiae corporis eligendi placeat dolor <a href="#" id="a6">linkk</a> id nesciunt, blanditiis ratione
+            ducimus a praesentium aperiam molestias nostrum aspernatur, possimus facilis atque eos dolores modi ipsam
+            deserunt? Alias praesentium eveniet recusandae. Cumque, sint?
+            Neque impedit, ad accusantium fuga soluta, accusamus eius, repellat officiis dicta ipsam perspiciatis
+            excepturi similique harum. Similique necessitatibus voluptatum aliquam praesentium est ratione inventore,
+            magnam sed distinctio. Libero, deserunt ab.
+            Voluptate nostrum nam laboriosam laborum provident <a href="#" id="a7">linkkk</a> repellat dicta
+            consequuntur at, quisquam numquam magni officiis rem iusto necessitatibus libero alias inventore labore cum,
+            repudiandae impedit? Error soluta vero veritatis neque quod!
+            Nam nisi quos, cupiditate, quis enim aperiam iatur nesciunt nemo aliquid ipsam odio dolorum. Odit.
+            Doloribus fugit quos enim ipsum cumque accusantium ex minus blanditiis maxime quo, optio magnam natus atque
+            aspernatur labore fuga facere neque totam provident deleniti eos, maiores excepturi? Vel, molestias animi!
+            Velit ex nemo a quas, minima eius reiciendis pturi maxime fuga. Molestias, rerum architecto officiis,<a
+                href="#" id="a8">kuch bhi</a> ex eligendi magni laboriosam quos debitis nisi sunt aliquid!
+            Sapiente magnam est ducimus voluptas quae ut ad, veritatis distinctio, illum nesciunt similique qui
+            exercitationem sunt animi? Laudantium voluptas, fugit, <a href="#" id="a9">kya pata</a> rerum asperiores
+            amet facilis voluptates velit aperiam, atque officia nesciunt!
+            Minima necessitatibus voluptatum asperiores cumque obcaecati officiis voluptas quod temporibus sit explicabo
+            <a href="#" id="a10">aise hi</a> repellat modi ipsum, sapiente doloribus recusandae maxime nostrum quo
+            nesciunt deleniti quae! Perspiciatis impedit veritatis ut deleniti accusamus.
+            Dolores assumenda nihil corrupti qui, expedita incidunt tempora sit necessitatibus magni iure facilis culpa
+            aut quam quo ipsa fuga natus quidem eius velit rerum quod a quaerat omnis! Tenetur, omnis.
+            Pariatur itaque corrupti ex adipisci, iure quas <a href="#" id="a11">anchorrr</a> fugiat ipsa mollitia
+            dolorum aspernatur, cum quidem, aliquam maiores commodi cupiditate praesentium et non perspiciatis atque
+            numquam dolorem qui sed sit quaerat! Eos?</p>
+     
+    <script>
+        let a = document.querySelectorAll("a");
+        let h = document.createElement("span")
+        h.classList.add("move")
+        document.body.append(h);
+
+        a.forEach((ele) => {
+            ele.addEventListener('mouseenter', () => {
+                let x = ele.getBoundingClientRect();
+                h.style.width = `${x.width}px`
+                h.style.height = `${x.height}px`
+                h.style.top = `${x.top+window.scrollY}px`
+                h.style.left = `${x.left}px`
+
+
+            })
+        })
+
+    </script>
+</body>
+
+</html>
