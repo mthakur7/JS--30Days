@@ -1,0 +1,147 @@
+//follow along drowpdown
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      *{
+        box-sizing: border-box;
+      }
+        ul{
+            display: flex;
+            flex-direction: row;
+            height: 100px;
+            background-color: yellow;
+        }
+        li{background-color: blue;
+            margin: 20px;
+            height: 20px;
+            
+            
+        }
+        .cp1{
+        display: none;
+        }
+       
+        #dp1{
+          width: 100px;
+          height: 200px;
+          background-color: orchid;
+        }
+        #dp2{
+          width: 200px;
+          height: 100px;
+          background-color: orchid;
+        }
+        #dp3{
+          width: 300px;
+          height: 300px;
+          background-color: orchid;
+        }
+        #dp4{
+          width: 200px;
+          height: 400px;
+          background-color: rgb(197, 170, 196);
+        }
+        .move{
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: aqua;
+            width: 10px;
+            height: 10px;
+            transition: height 0.3s;
+            transition: height 0.3s;
+            transition: width 0.3s;
+            /* z-index: -1; */
+            /* opacity: 0.2; */
+            /* display: none; */
+            
+        }
+        .arrow{
+          width:20px;
+          height:20px;
+          background-color: aqua;
+          position: absolute;
+          left:50%;
+          top:-10px;
+          transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>fghjk</h1>
+    <h2>fghj</h2>
+    <h3>dfghjjkjklgfgkjl;iougyhvjb</h3>
+   
+        <ul class="menu">
+          <li><a href="">Home</a>
+            <span class="cp1" id="dp1">
+              <div class="arrow"></div>
+              111111111Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id inventore beatae quidem evenim mollitia quia libero. Atque, odio eaque.
+            </span>
+        
+        </li>
+          <li><a href="">Order Status</a>
+            <span  class="cp1" id="dp2">
+              <div class="arrow"></div>2222222222Lorem ion eos. Totam quibusdam, aspernatur id non veniam mollitia quia libero. Atque, odio eaque.
+                is.</span></li>
+          <li><a href="">Tweets</a>
+            <span class="cp1" id="dp3">
+              <div class="arrow"></div>3333333Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id inventore beatae quidem eveniet reprehenderit vel assumenda non eos. Totam quibusdam, aspernatur id non veniam mollitia quia libero. Atque, odio eaque.
+                Hic, possimus? Incidunt autem iure, dolores aliquid facilis at qui quo, perspiciatis sapiente eligendi placeat? Possimus aliquam porro quasi tempora aspernatur quaerat consectetur reiciendis voluptatem officiis, delectus, esse aut corporis.</span></li>
+          <li><a href="">Read Our History</a>
+            <span class="cp1" id="dp4">
+              <div class="arrow"></div>4444444Lorem ipsum dolor sit, ame<button>dfghj</button> <br> <button> hjk</button> </span></li>
+        
+        </ul>
+      
+
+      <script>
+     
+        let l=document.querySelectorAll("li")  
+        let u=document.querySelector("ul")     
+        let d1=document.getElementById("dp1")
+
+        let m=document.createElement("div")
+        m.classList.add("move")
+        document.body.append(m)
+
+        l.forEach((ele)=>{
+          let d=document.getElementById(`${ele.children[1].id}`)
+
+         ele.addEventListener('mouseenter',()=>{        
+      
+           let g=ele.getBoundingClientRect();
+         
+
+          
+           m.style.top=`${g.top+30}px`;
+           m.style.left=`${g.left}px`;
+           m.style.width=`${getComputedStyle(d).width}`;
+           m.style.height=`${getComputedStyle(d).height}`;
+        
+           m.innerHTML=ele.children[1].innerHTML
+       
+         })
+      
+        
+        })
+        u.addEventListener('mouseenter',()=>{
+      m.style.display="block"
+
+        })
+        u.addEventListener('mouseleave',()=>{
+                // m.style.visibility="hidden"
+                m.style.display="none"
+
+        })
+      
+      </script>
+</body>
+</html>
