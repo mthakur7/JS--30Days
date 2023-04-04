@@ -1,0 +1,38 @@
+//countdown timer
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>document</h1>
+    <div id="main"></div>
+    <script>
+      let m=document.getElementById("main");
+
+       let s=60
+       let x1=Date.now()+s*1000
+    
+    
+       let k=60
+     let f= setInterval(()=>{
+      let y1=Date.now();
+      let mn=Math.floor(Math.round((x1-y1)/1000)/60)
+       if(k==0)
+       k=60
+       k=k-1
+       
+   
+          m.innerHTML=`${mn}::${k}`
+          if(mn==0 && k==0)
+          clearInterval(f)
+      },1000)
+     
+
+      
+    </script>
+</body>
+</html>
