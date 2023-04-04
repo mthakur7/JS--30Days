@@ -1,0 +1,85 @@
+//whack a mole game, random place for random time
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .main{
+      width: 100px;
+      height: 20px;
+      background-color: yellow;
+      margin: 10px;
+    }
+    .cont{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 400px;
+      height: 300px;
+      margin: 100px auto;
+      justify-content: space-between;
+    }
+    .show{
+      height: 50px;
+      width: 20px;
+      background-color: red;
+      display: none;
+    }
+    .score{
+      width: 100px;
+      height: 30px;
+      background-color: green;
+      font-size: 20px;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="cont">
+  <div class="main">
+    <div class="show"></div>
+  </div>
+  <div class="main"><div class="show"></div></div>
+  <div class="main"><div class="show"></div></div>
+  <div class="main"><div class="show"></div></div>
+  <div class="main"><div class="show"></div></div>
+  <div class="main"><div class="show"></div></div>
+</div>
+
+<div class="score"> Score:0</div>
+
+<script>
+  let main=document.getElementsByClassName("main");
+  let score=document.getElementsByClassName("score");
+  let s=0;
+  for(let x=0;x<main.length;x++){
+  
+    main[x].addEventListener('click',()=>{
+      main[x].children[0].style.display="none"
+      s++;
+    score[0].innerHTML=`${s}`
+      
+    })
+  }
+
+  setInterval(()=>{
+    let r=Math.floor(Math.random()*6)
+  console.log(r)
+  main[r].children[0].style.display="block"
+  fun(r)
+  },1000)
+ 
+  function fun(y){
+    let s=(Math.random()*2)
+    setTimeout(()=>{
+        main[y].children[0].style.display="none"
+      },s*1000)
+  }
+
+  
+</script>
+</body>
+</html>
